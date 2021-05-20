@@ -19,14 +19,14 @@ rosesRouter
   })
 
   .post(jsonBodyParser, (req, res, next) => {
-    const { name, type, color, date } = req.body
+    const { name, type_name, color, date } = req.body
 
-    for (const field of ['name', 'type', 'color', 'date'])
+    for (const field of ['name', 'type_name', 'color', 'date'])
       if (!req.body[field])
         return res.status(400).json({
           error: `Missing '${field}' in request body`
         })
-    const newRose = { user_id: req.user.id, name, type, color, date }
+    const newRose = { user_id: req.user.id, name, type_name, color, date }
     return RosesService.insertRose(
       req.app.get('db'),
       newRose
@@ -84,8 +84,8 @@ rosesRouter
   })
 
   .patch(jsonBodyParser, (req, res, next) => {
-    const { name, type, color, date } = req.body
-    const roseToUpdate = { name, type, color, date }
+    const { name, type_name, color, date } = req.body
+    const roseToUpdate = { name, type_name, color, date }
     
     const numberOfValues = Object.values(roseToUpdate).filter(Boolean).length
     if (numberOfValues === 0) {

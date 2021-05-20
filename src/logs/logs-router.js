@@ -8,10 +8,10 @@ const jsonBodyParser = express.json()
 
 
 logsRouter
-  .route('/')
+  .route('/:roseId')
   .all(requireAuth)
   .get((req, res, next) => {
-    LogsService.getAllLogs(req.app.get('db'), req.rose.id)
+    LogsService.getAllLogs(req.app.get('db'), req.params.roseId)
       .then(logs => {
         res.json(logs.map(LogsService.serializeLog))
       })
@@ -21,12 +21,12 @@ logsRouter
   .post(jsonBodyParser, (req, res, next) => {
     const { log, notes, date } = req.body
 
-    for (const field of ['log', 'notes', 'date'])
+    for (const field of ['log', 'date'])
       if (!req.body[field])
         return res.status(400).json({
           error: `Missing '${field}' in request body`
         })
-    const newLog = { rose_id: req.rose.id, log, notes, date }
+    const newLog = { rose_id: req.params.roseId, log, notes, date }
     return LogsService.insertLog(
       req.app.get('db'),
       newLog
@@ -40,13 +40,12 @@ logsRouter
   })
 
 logsRouter
-  .route('/:id')
+  .route('/:roseId/:id')
   .all(requireAuth)
   // .all(checkLogExists)
   .all((req, res, next) => {
-    const { id } = req.params;
-    // console.log('rose.id', req.rose.id)
-    LogsService.getById(req.app.get('db'), id, req.rose.id)
+    const { roseId, id } = req.params;
+    LogsService.getById(req.app.get('db'), roseId, id)
       .then(log => {
         if (!log) {
           logger.error(`Log with id ${id} not found.`);
@@ -84,8 +83,8 @@ logsRouter
   })
 
   .patch(jsonBodyParser, (req, res, next) => {
-    const { title, content } = req.body
-    const logToUpdate = { title, content }
+    const { log, notes, date } = req.body
+    const logToUpdate = { log, notes, date }
     
     const numberOfValues = Object.values(logToUpdate).filter(Boolean).length
     if (numberOfValues === 0) {

@@ -7,9 +7,9 @@ const LogsService = {
       .select('*').where({ rose_id })
   },
 
-  getById(db, id, rose_id) {
+  getById(db, rose_id, log_id) {
     return LogsService.getAllLogs(db, rose_id)
-      .where('id', id)
+      .where('id', log_id)
       .first()
   },
 

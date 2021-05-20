@@ -1,0 +1,19 @@
+{"message":"Rose with id 2 deleted.","level":"info"}
+{"message":"Rose with id 1 deleted.","level":"info"}
+{"message":"Log with id 10 not found.","level":"error"}
+{"message":"Log with id 10 not found.","level":"error"}
+{"message":"Rose with id 3 deleted.","level":"info"}
+{"message":"Rose with id 8 deleted.","level":"info"}
+{"message":"Log with id 17 not found.","level":"error"}
+{"message":"Log with id 17 not found.","level":"error"}
+{"message":"Log with id 19 not found.","level":"error"}
+{"message":"Log with id 19 not found.","level":"error"}
+{"message":"Rose with id 6 deleted.","level":"info"}
+{"message":"Log with id 20 not found.","level":"error"}
+{"message":"Log with id 20 not found.","level":"error"}
+{"message":"Log with id 20 not found.","level":"error"}
+{"message":"Log with id 22 not found.","level":"error"}
+{"message":"Log with id 22 not found.","level":"error"}
+{"message":"Rose with id 10 deleted.","level":"info"}
+{"message":"Log with id 26 deleted.","level":"info"}
+{"message":"Log with id 25 deleted.","level":"info"}

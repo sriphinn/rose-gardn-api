@@ -18,7 +18,7 @@ const RosesService = {
       id: rose.id,
       user_id: rose.user_id,
       name: xss(rose.name),
-      type: xss(rose.type),
+      type_name: xss(rose.type_name),
       color: xss(rose.color),
       date: new Date(rose.date)
     }

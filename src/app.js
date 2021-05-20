@@ -8,6 +8,7 @@ const logger = require('./logger');
 const authRouter = require('./auth/auth-router');
 const usersRouter = require('./users/users-router');
 const rosesRouter = require('./roses/roses-router');
+const logsRouter = require('./logs/logs-router');
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use(helmet());
 app.use('/api/auth', authRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/roses', rosesRouter)
+app.use('/api/logs', logsRouter)
 
 app.get("/", (req, res) => {
     res.send("Hello, world!");
