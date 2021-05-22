@@ -37,24 +37,24 @@ Deployed via Heroku
 - /api/roses
 - - GET - gets all roses by user id
 - - POST - creates a new rose
-```
+
 - /api/roses/:id
 - - GET - gets rose by id
 - - DELETE - delete rose by id
 - - PATCH - edit rose by id
-
+```
 ### Logs Router
 
 ```
 - /api/logs/:roseId
 - - GET - gets all logs by rose id
 - - POST - creates a new log
-```
+
 - /api/logs/:roseId/:id
 - - GET - gets log by id
 - - DELETE - delete log by id
 - - PATCH - edit log by id
-
+```
 ### Auth Router
 
 ```
