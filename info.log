@@ -17,3 +17,14 @@
 {"message":"Rose with id 10 deleted.","level":"info"}
 {"message":"Log with id 26 deleted.","level":"info"}
 {"message":"Log with id 25 deleted.","level":"info"}
+{"message":"Rose with id 123456 not found.","level":"error"}
+{"message":"Rose with id 123456 not found.","level":"error"}
+{"message":"Rose with id 123456 not found.","level":"error"}
+{"message":"Rose with id 123456 not found.","level":"error"}
+{"message":"Rose with id 123456 not found.","level":"error"}
+{"message":"Rose with id 123456 not found.","level":"error"}
+{"message":"Rose with id 123456 not found.","level":"error"}
+{"message":"Rose with id 123456 not found.","level":"error"}
+{"message":"Rose with id 123456 not found.","level":"error"}
+{"message":"Rose with id 123456 not found.","level":"error"}
+{"message":"Rose with id 123456 not found.","level":"error"}
