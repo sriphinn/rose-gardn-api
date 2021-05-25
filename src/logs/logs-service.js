@@ -18,6 +18,7 @@ const LogsService = {
       id: log.id,
       rose_id: log.rose_id,
       log: xss(log.log),
+      photo: xss(log.photo),
       notes: xss(log.notes),
       date: xss(log.date)
     }

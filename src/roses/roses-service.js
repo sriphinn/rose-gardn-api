@@ -18,6 +18,7 @@ const RosesService = {
       id: rose.id,
       user_id: rose.user_id,
       name: xss(rose.name),
+      photo: xss(rose.photo),
       type_name: xss(rose.type_name),
       color: xss(rose.color),
       date: new Date(rose.date)

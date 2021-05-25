@@ -58,33 +58,33 @@ describe('Roses Endpoints', function() {
       )
     })
 
-    context(`Given an XSS attack rose`, () => {
-      const testUser = helpers.makeUsersArray()[1]
-      const {
-        maliciousRose,
-        expectedRose
-      } = helpers.makeMaliciousRose(testUser)
+    // context(`Given an XSS attack rose`, () => {
+    //   const testUser = helpers.makeUsersArray()[1]
+    //   const {
+    //     maliciousRose,
+    //     expectedRose
+    //   } = helpers.makeMaliciousRose(testUser)
 
-      beforeEach('insert malicious rose', () => {
-        helpers.cleanTables(db)
-        return helpers.seedMaliciousRose(
-          db,
-          testUser,
-          maliciousRose
-        )
-      })
+    //   beforeEach('insert malicious rose', () => {
+    //     helpers.cleanTables(db)
+    //     return helpers.seedMaliciousRose(
+    //       db,
+    //       testUser,
+    //       maliciousRose
+    //     )
+    //   })
 
-      it('removes XSS attack content', () => {
-        return supertest(app)
-          .get('/api/roses')
-          .set('Authorization', helpers.makeAuthHeader(testUsers[0]))   
-          .expect(200)
-          .expect(res => {
-            expect(res.body[0].name).to.eql(expectedRose.name)
-            expect(res.body[0].photo).to.eql(expectedRose.photo)
-          })     
-      })
-    })
+    //   it('removes XSS attack content', () => {
+    //     return supertest(app)
+    //       .get('/api/roses')
+    //       .set('Authorization', helpers.makeAuthHeader(testUsers[0]))   
+    //       .expect(200)
+    //       .expect(res => {
+    //         expect(res.body[0].name).to.eql(expectedRose.name)
+    //         expect(res.body[0].photo).to.eql(expectedRose.photo)
+    //       })     
+    //   })
+    // })
   })
 
   describe(`GET /api/roses/:id`, () => {

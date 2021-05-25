@@ -42,7 +42,7 @@ logsRouter
 logsRouter
   .route('/:roseId/:id')
   .all(requireAuth)
-  // .all(checkLogExists)
+  .all(checkLogExists)
   .all((req, res, next) => {
     const { roseId, id } = req.params;
     LogsService.getById(req.app.get('db'), roseId, id)
@@ -109,7 +109,8 @@ async function checkLogExists(req, res, next) {
       try {
         const log = await LogsService.getById(
           req.app.get('db'),
-          req.params.log_id
+          req.params.roseId,
+          req.params.id
         )
 
         if (!log)

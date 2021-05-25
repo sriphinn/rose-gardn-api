@@ -218,10 +218,10 @@ function seedRosesTables(db, users, roses) {
   })
 }
 
-function seedLogsTables(db, roses, logs) {
+function seedLogsTables(db, roses, logs, users) {
   // use a transaction to group the queries and auto rollback on any failure
   return db.transaction(async trx => {
-    await seedRosesTables(trx, roses)
+    await seedRosesTables(trx, users, roses)
     await trx.into('rose_gardn_logs').insert(logs)
     // update the auto sequence to match the forced values
     await trx.raw(
